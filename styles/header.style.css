@@ -205,14 +205,26 @@ body {
 }
 
 .advantages__foto-btn {
+    position: relative;
+
+}
+
+.advantages__foto-btn {
     width: auto;
     height: 50px;
     background: transparent;
     color: white;
     font-size: 18px;
+    font-weight: 700;
     position: absolute;
-    top: 35%;
-    left: 30%;
+    top: 177%;
+    left: 25%;
+    border-radius: 5px;
+}
+
+.advantages__foto-btn:hover {
+    background-color: white;
+    color: black;
 }
 
 
@@ -311,8 +323,8 @@ body {
     }
 
     .advantages__foto-btn {
-        top: 45%;
-        left: 40%;
+        top: 110%;
+        left: 70%;
     }
 
 }
