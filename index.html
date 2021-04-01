@@ -7,6 +7,7 @@
       <link href="styles/header.style.css" rel="stylesheet">
       <link href="styles/advantages.style.css" rel="stylesheet">
       <link href="styles/loan.style.css" rel="stylesheet">
+      <link href="styles/calculator.styles.css" rel="stylesheet">
       <script src="https://kit.fontawesome.com/c823455d35.js" crossorigin="anonymous"></script>
       <title>Купить новую квартиру</title>
   </head>
@@ -90,17 +91,37 @@
           <i class="fab fa-sketch"></i>
         </div>
         <p class="item__undericon-text">Lorem ipsum dolor sit.</p>
+      </div>
+    </div>  
 
-      </div>
-      
-
-      <div class="loan__calculator">
-      
-      </div>
-      <div class="loan__bank-contacts">
-      
-      </div>
+    <div class="calculator">
+      <h2 class="calculator__heading">Кредитный калькулятор</h2>
+      <p class="calculator__heading-description">верояность получения кредита</p>
+      <form class="calculator__form">
+        <label for="sum">Сумма кредита, руб</label>
+        <input class="calculator__form-sum form__input" type="number" name="sum" id="sum" min="1000" required>
+        
+        <label for="age">Ваш возраст</label>
+        <input class="calculator__form-age form__input" type="number" name="age" id="age" required>
+        
+        <label for="salary">Средняя ежемесячная зарплата, руб</label>
+        <input class="calculator__form-salary form__input" type="number" name="salary" id="salary" required>
+        
+        <label for="term">Срок кредита</label>
+        <select class="calculator__term form__input" name="term"  id="term" required>
+          <option value="36">36 месяцев</option>
+          <option value="60">60 месяцев</option>
+          <option value="120">120 месяцев</option>
+        </select>
+        <input class="calculator__btn" type="button" value="Рассчитать">
+      </form>
+    
     </div>
+    
+    <div class="loan__bank-contacts">
+      
+     </div>
+    
       
     <div class="footer">
       <div class="footer__links">
