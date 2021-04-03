@@ -1,0 +1,13 @@
+.bank-contacts__heading {
+    margin: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.bank-contacts__form {
+    width: 70%;
+    margin: 0 auto;
+}
+

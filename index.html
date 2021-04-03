@@ -8,6 +8,8 @@
       <link href="styles/advantages.style.css" rel="stylesheet">
       <link href="styles/loan.style.css" rel="stylesheet">
       <link href="styles/calculator.styles.css" rel="stylesheet">
+      <link href="styles/bank-contacts.style.css" rel="stylesheet">
+      <link href="styles/bank-contacts.style.css" rel="stylesheet"> 
       <script src="https://kit.fontawesome.com/c823455d35.js" crossorigin="anonymous"></script>
       <title>Купить новую квартиру</title>
   </head>
@@ -96,8 +98,8 @@
 
     <div class="calculator">
       <h2 class="calculator__heading">Кредитный калькулятор</h2>
-      <p class="calculator__heading-description">верояность получения кредита</p>
-      <form class="calculator__form">
+      <p class="calculator__heading-description">вероятность получения кредита</p>
+      <form class="calculator__form" method="POST">
         <label for="sum">Сумма кредита, руб</label>
         <input class="calculator__form-sum form__input" type="number" name="sum" id="sum" min="1000" required>
         
@@ -113,15 +115,38 @@
           <option value="60">60 месяцев</option>
           <option value="120">120 месяцев</option>
         </select>
-        <input class="calculator__btn" type="button" value="Рассчитать">
+        <input class="calculator__btn" type="submit" value="Рассчитать">
       </form>
     
     </div>
     
-    <div class="loan__bank-contacts">
+    <div class="bank-contacts">
+      <h2 class="bank-contacts__heading">Оставьте Ваши контактные данные, и наш специалист свяжется с Вами.</h2>
+      <form class="bank-contacts__form" action="#" method="POST">
+        <label for="name">Имя</label>
+        <input class="form__name" type="text" id="name" name="name">
+        
+        <label for="surname">Фамилия</label>
+        <input class="form__surname" type="text" id="surname" name="surname">
+
+        <label for="phone">Номер телефона</label>
+        <input class="form__phone" type="tel" id="phone" name="phone" pattern="+375-[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" title="+375 xx xxx xx xx"> 
       
-     </div>
-    
+        <select class="form__purchase-method">
+          <option value="Рассрочка на 5 лет">Рассрочка на 5 лет</option>
+          <option value="Рассрочка на 3 года">Рассрочка на 3 года</option>
+          <option value="Ипотека">Ипотека</option>
+          <option value="Льготный кредит">Льготный кредит</option>
+        </select>
+        
+        <input class="form__btn" type="submit" value="Отправить">
+      
+      </form> 
+      
+      
+      
+    </div>
+          
       
     <div class="footer">
       <div class="footer__links">

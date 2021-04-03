@@ -1,5 +1,4 @@
 .calculator {
-    width: 70%;
     margin: 0 auto;
 }
 
@@ -18,9 +17,11 @@
 }
 
 .calculator__form {
+    width: 70%;
     display: flex;
     flex-direction: column;
     font-size: 20px;
+    margin: 0 auto;
 }
 
 .form__input {
@@ -48,6 +49,7 @@
 
 .calculator__btn:hover {
     background-color: #00800094;
+    font-weight: 700;
 }
 
 @media screen and (min-width:481px) {
