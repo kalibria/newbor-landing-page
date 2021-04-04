@@ -1,0 +1,53 @@
+.footer {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2% 0 2% 0;
+    /*position: relative;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__links {
+    display: flex;
+}
+
+/*.footer::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: 60px;
+    left: 0px;
+}*/
+
+.links__item {
+    
+    margin-right: 20px;
+}
+
+.links__github,
+.links__linkedin {
+    font-size: 40px;
+    color: black;
+}
+
+.links__github:hover,
+.links__linkedin:hover {
+    color:blueviolet;
+}
+
+.year__description {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.footer-logo {
+    width: 50px;
+}
+
+@media screen and (min-width:481px) {
+    .footer-logo {
+        width: 70px;
+    } 
+}
