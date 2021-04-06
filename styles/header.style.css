@@ -193,7 +193,7 @@ body {
     }
 
     .header__menu::after {
-        top: 100px;
+        top: 120px;
     }
 
     .header__logo {
@@ -201,7 +201,6 @@ body {
     }
     
     .header__tels {
-        padding: 5px 0 0 5px;
         order: 3;
     }
 

@@ -1,7 +1,8 @@
 .footer {
     width: 90%;
     margin: 0 auto;
-    padding: 2% 0 2% 0;
+    margin-top: 50px;
+    margin-bottom: 15px;
     /*position: relative;*/
     display: flex;
     justify-content: space-between;
@@ -21,14 +22,13 @@
     left: 0px;
 }*/
 
-.links__item {
-    
+.links__github {
     margin-right: 20px;
 }
 
 .links__github,
 .links__linkedin {
-    font-size: 40px;
+    font-size: 30px;
     color: black;
 }
 
@@ -38,8 +38,10 @@
 }
 
 .year__description {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
+    text-align: center;
+    margin: 0 10px;
 }
 
 .footer-logo {
@@ -47,7 +49,22 @@
 }
 
 @media screen and (min-width:481px) {
+    .footer{
+        margin-top: 70px;
+        margin-bottom: 15px;
+    }
     .footer-logo {
         width: 70px;
     } 
+
+    .links__github,
+    .links__linkedin {
+        font-size: 40px;
+        color: black;
+    }
+
+    .year__description {
+        font-size: 16px;
+        padding-top: 20px;
+    }
 }
