@@ -65,8 +65,7 @@
     }
 
     .advantages__foto-wrapper {
-        max-width: 960px;
-        min-height: 360px;
+        height: auto;
     }
 
     .advantages__foto {
