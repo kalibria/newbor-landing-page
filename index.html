@@ -49,6 +49,7 @@
 
       <div class="header__timer">
         <p class="timer__demo"></p>
+        <p class="timer__description">Дом 7.64 по супер цене!</p>
 
       </div>
     </div>
@@ -100,13 +101,13 @@
 
     <div class="calculator">
       <h2 class="calculator__heading">Кредитный калькулятор</h2>
-      <p class="calculator__heading-description">вероятность получения кредита</p>
-      <form class="calculator__form" method="POST">
+      <p class="calculator__heading-description">Ежемесячные платежи по ставке <b>18%</b> <br>(ставка фиксированная)</p>
+      <form class="calculator__form" name="calculator__form">
         <label for="sum">Сумма кредита, руб</label>
-        <input class="calculator__form-sum form__input" type="number" name="sum" id="sum" min="1000" required>
+        <input class="calculator__form-sum form__input" type="number" value="20000" name="sum" id="sum" min="1000" required>
         
         <label for="age">Ваш возраст</label>
-        <input class="calculator__form-age form__input" type="number" name="age" id="age" required>
+        <input class="calculator__form-age form__input" min="18" max="99" type="number" name="age" id="age" required>
         
         <label for="salary">Средняя ежемесячная зарплата, руб</label>
         <input class="calculator__form-salary form__input" type="number" name="salary" id="salary" required>
@@ -117,7 +118,11 @@
           <option value="60">60 месяцев</option>
           <option value="120">120 месяцев</option>
         </select>
-        <input class="calculator__btn" type="submit" value="Рассчитать">
+        <input type="submit"
+        class="calculator__btn" 
+        name="calculator__btn"  
+        value="Рассчитать">
+
       </form>
     
     </div>
@@ -173,6 +178,7 @@
         </a>
       </div>
     </div>
-    <script src="timer.js"></script>
+    <script src="scripts/timer.js"></script>
+    <script src="scripts/calculator.js"></script>
   </body>
 </html>
