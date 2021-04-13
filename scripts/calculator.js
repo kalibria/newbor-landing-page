@@ -1,47 +1,20 @@
-/*let dataForCalculation = {};
-
-dataForCalculation.sum = document.querySelector(".calculator__form-sum").value;
-dataForCalculation.age = document.querySelector(".calculator__form-age").value;
-dataForCalculation.salary = document.querySelector(".calculator__form-salary").value;
-dataForCalculation.term = document.querySelector(".calculator__term").value;
-
-console.log(dataForCalculation);
-
 const formCalculator = document.forms.calculator__form;
-console.log(formCalculator);
 
-formCalculator.sum.onchange = calculate;
-formCalculator.age.onchange = calculate;
-formCalculator.salary.onchange = calculate;
-formCalculator.term.onchange = calculate;
-
-function calculate() {
-    let sum = +formCalculator.sum.value;
-    if(!sum) {
-        return};
-
-    let age = +formCalculator.age.value;
-    if(age < 18 || age > 99) {
-        alert ("Ввести какой-то текст");
-    } 
-}*/
-
-const formCalculator = document.forms.calculator__form;
-console.log(formCalculator.sum.value,"sum");
 let sum = +formCalculator.sum.value;
 let age = +formCalculator.age.value;
-
 let salary = +formCalculator.salary.value;
 let term = +formCalculator.term.value;
-
-
 const rate = 18;
+
+let rateTag = document.querySelector(".calculator__heading-description > b");
+rateTag.innerText = rate + "%";
+
+let percentageOfSalary;
 
 const btnCalc = formCalculator.calculator__btn;
 btnCalc.onclick = calculate;
 
 function validateSum (creditInput) {
-    console.log("creditInput",creditInput);
     if(typeof creditInput === "string") {
         alert("Введите число");
     }else if(creditInput < 0) {
@@ -51,13 +24,64 @@ function validateSum (creditInput) {
     }
 }
 
-function calculate (ev) {
-    ev.preventDefault();
-    sum = +formCalculator.sum.value;
-validateSum(sum);
-
-
+function validateAge (ageInput) {
+    if (ageInput < 18 || ageInput > 55) {
+        alert ("Ваш возраст не позволяет взять кредит");
+    }else {
+        return
+    } 
 }
 
-/*console.log(formCalculator);*/
+
+function validateSalaryInput (salaryInput) {
+    if(typeof salaryInput !== "number"){
+        alert ("Введено неправильное значение");
+    }
+}
+
+
+function validateSalary (salaryInput,monthlyPayment) {
+    percentageOfSalary = salaryInput * 0.6;
+    if (monthlyPayment > percentageOfSalary) {
+        alert("К сожалению, Вы не сможете взять кредит. Ежемесячные платежи составят более 60% от суммы заработной платы")        
+    }else {
+        return;
+    }
+}
+
+function calculateMonthlyPayment (interestRate, sum, term) {
+    let monthlyPercent = interestRate / 12;
+    let sumMonthlyPercent = sum * monthlyPercent / 100;
+    let sumPercent = sumMonthlyPercent * term;
+    let wholeSum = sum + sumPercent;
+    return Math.round(wholeSum / term);
+}
+
+function calculate (ev) {
+    ev.preventDefault();
+
+console.log("hohoh");
+
+    sum = +formCalculator.sum.value;
+    age = +formCalculator.age.value;
+    salary = +formCalculator.salary.value;
+    term = +formCalculator.term.value;
+
+    validateSum(sum);
+    validateAge(age);
+    validateSalaryInput(salary);
+    const monthlyPayment = calculateMonthlyPayment(rate, sum, term);
+    validateSalary(salary,monthlyPayment);
+ 
+
+    if (age >= 18 && age <= 55 && monthlyPayment <= percentageOfSalary) {
+        alert("Ваш ежемесячный платеж составит " + monthlyPayment + " руб."); 
+    }else{
+        return;
+    }
+}
+
+
+
+
 
