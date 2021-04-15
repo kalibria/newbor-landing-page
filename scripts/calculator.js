@@ -4,6 +4,7 @@ let sum = +formCalculator.sum.value;
 let age = +formCalculator.age.value;
 let salary = +formCalculator.salary.value;
 let term = +formCalculator.term.value;
+const children = formCalculator.children;
 const rate = 18;
 
 let rateTag = document.querySelector(".calculator__heading-description > b");
@@ -46,10 +47,18 @@ let validateSalaryInput = function (salaryInput) {
 
 
 let validateSalary = function (salaryInput,monthlyPayment) {
+    if(children.checked){
+        percentageOfSalary = salaryInput * 0.4;
+    }else{
     percentageOfSalary = salaryInput * 0.6;
+    }
     if (monthlyPayment > percentageOfSalary) {
+        if(children.checked){
+            alert("К сожалению, Вы не сможете взять кредит. Ежемесячные платежи составят более 40% от суммы заработной платы");
+            return false;
+        }else{
         alert("К сожалению, Вы не сможете взять кредит. Ежемесячные платежи составят более 60% от суммы заработной платы")        
-        return false;
+        return false;}
     }else {
         return true;
     }
