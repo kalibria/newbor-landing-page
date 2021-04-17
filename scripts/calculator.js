@@ -16,11 +16,19 @@ const btnCalc = formCalculator.calculator__btn;
 btnCalc.onclick = calculate;
 
 function validateSum (creditInput) {
+    const sumHtml = document.querySelector(".calculator__form-sum");
     if(typeof creditInput === "string") {
-        alert("Введите число");
+            sumHtml.insertAdjacentHTML(
+            "afterend", 
+            "<p class='validation-error'>Введите число</p>"
+            )
         return false;
     }else if(creditInput < 0) {
-        alert("Введите корректное значение");
+        console.log()
+        sumHtml.insertAdjacentHTML(
+            "afterend", 
+            "<p class='validation-error'>Введите корректное значение</p>"
+            )
         return false;
     }else{
         return true;
@@ -29,24 +37,32 @@ function validateSum (creditInput) {
 
  function validateAge (ageInput) {
     if (ageInput < 18 || ageInput > 55) {
-        //alert ("Ваш возраст не позволяет взять кредит"); 
+        const ageHtml = document.querySelector(".calculator__form-age");
+        ageHtml.insertAdjacentHTML(
+            "afterend", 
+            "<p class='validation-error calculator__validation-error' >Ваш возраст не позволяет взять кредит</p>"
+        );
         return false;
     }else {
         return true;
     } 
 }
 
+const salaryHtml = document.querySelector(".calculator__form-salary");
 
 let validateSalaryInput = function (salaryInput) {
     if(typeof salaryInput !== "number"){
-        alert ("Введено неправильное значение");
+            salaryHtml.insertAdjacentHTML(
+            "afterend",
+            "<p class='validation-error'>Введено неправильное значение</p>"
+        )
         return false;
     }
     return true;
 }
 
 
-let validateSalary = function (salaryInput,monthlyPayment) {
+let canPersonHaveCredit = function (salaryInput,monthlyPayment) {
     if(children.checked){
         percentageOfSalary = salaryInput * 0.4;
     }else{
@@ -54,11 +70,18 @@ let validateSalary = function (salaryInput,monthlyPayment) {
     }
     if (monthlyPayment > percentageOfSalary) {
         if(children.checked){
-            alert("К сожалению, Вы не сможете взять кредит. Ежемесячные платежи составят более 40% от суммы заработной платы");
+            salaryHtml.insertAdjacentHTML(
+                "afterend",
+                "<p class='validation-error'>К сожалению, Вы не сможете взять кредит. Ежемесячные платежи составят более 40% от суммы заработной платы</p>"
+            )
             return false;
         }else{
-        alert("К сожалению, Вы не сможете взять кредит. Ежемесячные платежи составят более 60% от суммы заработной платы")        
-        return false;}
+            salaryHtml.insertAdjacentHTML(
+                "afterend",
+                "<p class='validation-error'>К сожалению, Вы не сможете взять кредит. Ежемесячные платежи составят более 60% от суммы заработной платы</p>"
+            )
+            return false;
+        }
     }else {
         return true;
     }
@@ -80,20 +103,20 @@ function calculate (ev) {
     salary = +formCalculator.salary.value;
     term = +formCalculator.term.value;
 
-// todo remove double alerts
-
     const isValidSum = validateSum(sum);
     const isValidAge = validateAge(age);
-    const isValidSalary = validateSalaryInput(salary);
+    const isValidSalaryInput = validateSalaryInput(salary);
     const monthlyPayment = calculateMonthlyPayment(rate, sum, term);
-    validateSalary(salary,monthlyPayment);
+    const canHaveCredit = canPersonHaveCredit(salary,monthlyPayment);
 
+    console.log(isValidSalaryInput,"validSal");
     if (isValidSum === false ){
         return;
     }else if (isValidAge === false) {
-        console.log(isValidAge,"age");
         return;
-    }else if (isValidSalary === false) {
+    }else if (isValidSalaryInput === false) {
+        return;
+    }else if (canHaveCredit === false){
         return;
     }else {
         alert("Ваш ежемесячный платеж составит " + monthlyPayment + " руб.");

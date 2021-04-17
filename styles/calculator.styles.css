@@ -29,6 +29,12 @@
     margin-bottom: 20px;
 }
 
+.validation-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 0;
+} 
+
 .form__input:hover {
     background-color: #f1afbb45;
 }

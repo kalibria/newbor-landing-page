@@ -2,9 +2,13 @@
 - fix logo
 - make menu items more visible 
 - delete full stops
+- delete list style 
 - border remove in button
 - color green consistent
 - footer black
 - calculatormake user message
+- mobile version fix dropdowm menu
 - add README.md file to the root of your project and copy this task text there
+- link to LinkedIn should be to my personal profile
+- github link is better to point to the project's repository
 - Upload the changed file to Github
